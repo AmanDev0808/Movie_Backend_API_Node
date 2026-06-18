@@ -1,7 +1,13 @@
 const express = require('express');
 const env = require('dotenv');
 const mongoose = require('mongoose');
-const Movie = require('./model/movie.model');
+
+
+const MovieRoutes = require('./routes/movie.routes');
+
+
+
+
 env.config();
 
 const app = express();
@@ -13,6 +19,22 @@ app.get('/home',(req,res)=>{
           message:"Fetched home"
       });
 });
+
+
+
+app.use(express.json());   // <-- ADD THIS
+/**
+ *   Step 4: Register Middleware
+         You added:
+         app.use(express.json());
+         This tells Express:
+         "Whenever JSON comes from Postman, convert it into req.body."
+          Without it:
+          req.body = {}
+          With it:
+          req.body = {name: "Jhund"}
+ */
+MovieRoutes(app);  // invoking in movie routers
 
 
 app.listen(process.env.PORT, async () => {
