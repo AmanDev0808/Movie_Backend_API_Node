@@ -20,7 +20,11 @@ app.get('/home',(req,res)=>{
       });
 });
 
-
+// 👇 Add it here
+app.use((req, res, next) => {
+    console.log(req.method, req.url);
+    next();
+});
 
 app.use(express.json());   // <-- ADD THIS
 /**
