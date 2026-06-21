@@ -43,7 +43,6 @@ MovieRoutes(app);  // invoking in movie routers
 
 app.listen(process.env.PORT, async () => {
     console.log(`Server is Running on port number ${process.env.PORT}`);
-
     try {
         await mongoose.connect(process.env.DB_URL);
         console.log("Successfully connected to MongoDB");
