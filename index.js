@@ -38,6 +38,9 @@ app.use(express.json());   // <-- ADD THIS
           With it:
           req.body = {name: "Jhund"}
  */
+app.put('/test', (req,res)=>{
+    res.send("PUT works");
+});
 MovieRoutes(app);  // invoking in movie routers
 
 
