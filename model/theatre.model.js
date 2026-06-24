@@ -1,4 +1,4 @@
-const mongoose  = required('mongoose');
+const mongoose  = require('mongoose');
 /**
  * Defines the Schema of theatre resource to be stored int the DB
  */

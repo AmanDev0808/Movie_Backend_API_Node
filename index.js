@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 
 const MovieRoutes = require('./routes/movie.routes');
-
+const theatreRoutes = require('./routes/theatre.routes');
 
 
 
@@ -42,6 +42,7 @@ app.put('/test', (req,res)=>{
     res.send("PUT works");
 });
 MovieRoutes(app);  // invoking in movie routers
+theatreRoutes(app);// involing theatre routes 
 
 
 app.listen(process.env.PORT, async () => {
