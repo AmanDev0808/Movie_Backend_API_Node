@@ -1,5 +1,10 @@
 const Theatre = require('../model/theatre.model');
 
+/**
+ * 
+ * @param  data --> object containing details of the theatre to be created 
+ * @returns --> object with new theatre details
+ */
 const createTheatre = async (data)=>{
     try{
            const response = await Theatre.create(data);
@@ -43,6 +48,13 @@ const getAllTheatre = async()=>{
         throw error;
     }
 }
+
+
+/**
+ * 
+ * @param  id --> the unique id using which we can identify the theatre to be deleted 
+ * @returns --> return the deleted  theatre object
+ */
 
 const deleteTheatre  = async(id)=>{
      try{
