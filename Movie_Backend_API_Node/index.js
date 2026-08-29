@@ -1,3 +1,7 @@
+const dns = require('dns');
+
+dns.setServers(['8.8.8.8', '1.1.1.1']);
+
 const express = require('express');
 const env = require('dotenv');
 const mongoose = require('mongoose');
@@ -94,7 +98,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-const PORT = process.env.PORT || 1914;
+const PORT = process.env.PORT || 1917;
 
 const _dirname = path.resolve();
 app.use(express.static(path.join( _dirname ,"/frontend/dist")));
