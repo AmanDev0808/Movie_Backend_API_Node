@@ -1,0 +1,181 @@
+/* SeatSelection.css */
+
+.cinema-screen-container {
+  perspective: 600px;
+}
+
+.curved-cinema-screen {
+  width: 88%;
+  height: 6px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50% / 0 0 100% 100%;
+  box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+  transform: rotateX(-12deg);
+  margin: 0 auto;
+}
+
+.seat-selected-glow {
+  box-shadow: 0 0 0 1px rgba(229,9,20,0.4), 0 8px 18px rgba(229,9,20,0.22);
+}
+
+/* SVG circle timer countdown */
+.countdown-circle {
+  transition: stroke-dashoffset 1s linear, stroke 0.5s ease;
+}
+
+/* Keyboard Seat Focus Ring */
+.seat-focus-ring:focus-visible {
+  outline: 2px solid #e50914;
+  outline-offset: 2px;
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
+  z-index: 10;
+}
+
+/* Mobile Bottom Sheet drawer */
+.bottom-sheet-transition {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.4s ease;
+}
+
+/* ============================================================
+   TICKET CARD NOTCHES & DIVIDERS
+   ============================================================ */
+.ticket-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 
+              0 0 50px rgba(229, 9, 20, 0.05);
+}
+
+.ticket-notch-left,
+.ticket-notch-right {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: #0a0a0f; /* Match outer page bg color */
+  border-radius: 50%;
+  z-index: 20;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ticket-notch-left {
+  left: -15px;
+  box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.ticket-notch-right {
+  right: -15px;
+  box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.ticket-divider {
+  border-top: 2px dashed rgba(255, 255, 255, 0.12);
+  width: 100%;
+}
+
+/* QR Code Grid Simulator Glow */
+.qr-code-glow {
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.2);
+}
+
+/* Barcode generation spacing */
+.barcode-line {
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 100%;
+  display: inline-block;
+  margin: 0 1px;
+}
+
+/* ============================================================
+   PREMIUM GLASS TOAST NOTIFICATIONS
+   ============================================================ */
+.Toastify__toast {
+  background: rgba(15, 15, 20, 0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 1.25rem !important;
+  color: #ffffff !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+}
+
+.Toastify__toast--success {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.Toastify__toast--error {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.Toastify__toast--warning {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.Toastify__toast--info {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* ============================================================
+   PRINT CONFIGURATION (@media print)
+   ============================================================ */
+@media print {
+  /* Reset body colors for pure contrast printout */
+  body, html {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Hide navigation panels, buttons, custom timers, overlays, etc. */
+  .no-print,
+  button,
+  header,
+  footer,
+  nav {
+    display: none !important;
+  }
+
+  /* Expand print block and remove glass gradients */
+  .print-ticket-area {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    width: 380px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    box-shadow: none !important;
+    border-radius: 1.5rem !important;
+    padding: 2rem !important;
+  }
+
+  .print-ticket-area * {
+    color: #000000 !important;
+  }
+
+  .print-ticket-area img {
+    filter: grayscale(100%) !important;
+    border: 1px solid #000 !important;
+  }
+
+  .print-ticket-area .ticket-notch-left,
+  .print-ticket-area .ticket-notch-right {
+    background: #ffffff !important;
+    border: 1px solid #000000 !important;
+  }
+
+  .print-ticket-area .barcode-line {
+    background-color: #000000 !important;
+  }
+
+  .print-ticket-area .ticket-divider {
+    border-top: 2px dashed #000000 !important;
+  }
+}
